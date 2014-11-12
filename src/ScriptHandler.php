@@ -44,8 +44,8 @@ class ScriptHandler {
 			]
 		);
 
-		foreach ( $db_creds as $key => $msg ) {
-			$$key = $io->ask( $msg, 'default' );
+		foreach ( $db_creds as $key => $val ) {
+			$$key = $io->ask( $val['msg'] , $val['default'] );
 		}
 
 		$replaces = [
