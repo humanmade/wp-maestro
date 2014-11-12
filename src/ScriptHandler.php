@@ -50,7 +50,7 @@ class ScriptHandler {
 		}
 
 		$replaces = [
-			"{{projectname }}" => $project_name,
+			"{{projectname}}" => $project_name,
 			"{{db_host}}"     => $db_host,
 			"{{db_name}}"     => $db_name,
 			"{{db_user}}"     => $db_user,
@@ -59,12 +59,15 @@ class ScriptHandler {
 
 		$wp_config_local = 'wp-config-local.php-dist';
 		$wp_config = 'wp-config.php-dist';
+		$index = 'index.php';
 
-		self::doReplace( $templates_path . $wp_config, $replaces );
+		self::doReplace( $templates_path . $wp_config_local, $replaces );
 
 		copy( $templates_path . $wp_config_local, $root . DIRECTORY_SEPARATOR . substr( $wp_config_local, 0, - 5 ) );
 
 		copy( $templates_path . $wp_config, $root . DIRECTORY_SEPARATOR . substr( $wp_config, 0, - 5 ) );
+		
+		copy( $templates_path . $index, $root . DIRECTORY_SEPARATOR . substr( $wp_config, 0, - 5 ) );
 
 		//$hosts_task = new Hosts( $project_name );
 		//$hosts_task->run();
