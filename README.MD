@@ -12,3 +12,8 @@ Run the following command from the parent directory where you want to install Wo
 `composer create-project -sdev humanmade/wp-maestro testinstall`
 
 Where [testinstall] is the name of your project.
+
+At the end of the process, you'll be asked:
+> Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]?
+
+You should answer 'yes'
