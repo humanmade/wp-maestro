@@ -1,0 +1,43 @@
+{
+    "name": "humanmade/hm-bud",
+    "description": "WordPress project generator",
+    "require": {
+        "johnpbloch/wordpress": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.3",
+        "squizlabs/php_codesniffer": "~1.5",
+        "wpackagist-plugin/user-switching": "*",
+        "wpackagist-plugin/query-monitor": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Human Made Limited",
+            "email": "hello@hmn.md",
+            "homepage": "https://hmn.md"
+        },
+        {
+            "name": "Contributors",
+            "homepage": "https://github.com/humanmade/HM-Bud/graphs/contributors"
+        }
+    ],
+    "type": "project",
+    "repositories": [
+        {
+            "type": "composer",
+            "url" : "http://wpackagist.org"
+        }
+    ],
+    "config"      : {
+        "vendor-dir": "wp-content/vendor"
+    },
+    "extra": {
+        "wordpress-install-dir": "wp"
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "skeleton/post_create_project.php"
+        ]
+    }
+}
