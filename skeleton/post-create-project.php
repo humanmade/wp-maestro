@@ -93,8 +93,3 @@ function del_tree( $dir ) {
 }
 
 exit( 0 );
-
-register_shutdown_function( function(){
-	$error = error_get_last();
-	echo 'There was an error';
-});
