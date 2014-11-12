@@ -18,6 +18,6 @@ class Database {
 
 		chdir( $this->project_path );
 
-		exec( 'wp create db' );
+		exec( 'wp db create' );
 	}
 }

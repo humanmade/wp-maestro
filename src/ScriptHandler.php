@@ -80,11 +80,11 @@ class ScriptHandler {
 		$database_task = new Database( $root );
 		$database_task->run();
 
-		echo 'Cleaning up';
+		echo 'Cleaning up' . PHP_EOL;
 		// Remove the source code.
 		self::delTree( 'src' );
 
-		echo 'Script finished. Your site is ready!';
+		echo 'Script finished. Your site is ready!' . PHP_EOL;
 
 		// exit composer and terminate installation process
 		exit;
