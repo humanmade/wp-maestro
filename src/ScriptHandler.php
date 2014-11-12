@@ -66,8 +66,8 @@ class ScriptHandler {
 		copy( $templates_path . $wp_config_local, $root . DIRECTORY_SEPARATOR . substr( $wp_config_local, 0, - 5 ) );
 
 		copy( $templates_path . $wp_config, $root . DIRECTORY_SEPARATOR . substr( $wp_config, 0, - 5 ) );
-		
-		copy( $templates_path . $index, $root . DIRECTORY_SEPARATOR . substr( $wp_config, 0, - 5 ) );
+
+		copy( $templates_path . $index, $root . DIRECTORY_SEPARATOR . substr( $index, 0, - 5 ) );
 
 		//$hosts_task = new Hosts( $project_name );
 		//$hosts_task->run();
