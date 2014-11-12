@@ -59,7 +59,7 @@ class ScriptHandler {
 
 		$wp_config_local = 'wp-config-local.php-dist';
 		$wp_config = 'wp-config.php-dist';
-		$index = 'index.php';
+		$index = 'index.php-dist';
 
 		self::doReplace( $templates_path . $wp_config_local, $replaces );
 
