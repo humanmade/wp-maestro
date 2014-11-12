@@ -55,7 +55,6 @@ class ScriptHandler {
 			"{{db_name}}"     => $db_name,
 			"{{db_user}}"     => $db_user,
 			"{{db_pass}}"     => $db_pass,
-			"{{domain}}"    => $project_name . '.dev'
 		];
 
 		$wp_config_local = 'wp-config-local.php-dist';
@@ -64,6 +63,7 @@ class ScriptHandler {
 		$wpcli_config = 'wp-cli.yml-dist';
 
 		self::doReplace( $templates_path . $wp_config_local, $replaces );
+		self::doReplace( $templates_path . $wpcli_config, $replaces );
 
 		copy( $templates_path . $wp_config_local, $root . DIRECTORY_SEPARATOR . substr( $wp_config_local, 0, - 5 ) );
 
