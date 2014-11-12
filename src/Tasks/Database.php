@@ -19,5 +19,6 @@ class Database {
 		chdir( $this->project_path );
 
 		exec( 'wp db create' );
+		exec( 'wp core install --url=http://testinstall.dev --title=testinstall --admin_user=paul --admin_password=password --admin_email=paul@hmn.md' );
 	}
 }
