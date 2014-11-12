@@ -6,4 +6,4 @@
 // @TODO: add gruntfile / package.json
 // @TODO: prompt for additional plugins during setup
 
- 
+fwrite( STDOUT, 'Enter the name of your project' );

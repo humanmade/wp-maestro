@@ -1,5 +1,5 @@
 {
-    "name": "humanmade/hm-bud",
+    "name": "humanmade/wp-maestro",
     "description": "WordPress project generator",
     "require": {
         "johnpbloch/wordpress": "dev-master"
@@ -19,7 +19,7 @@
         },
         {
             "name": "Contributors",
-            "homepage": "https://github.com/humanmade/HM-Bud/graphs/contributors"
+            "homepage": "https://github.com/humanmade/wp-maestro/graphs/contributors"
         }
     ],
     "type": "project",
@@ -37,7 +37,7 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "skeleton/post_create_project.php"
+            "skeleton/post-create-project.php"
         ]
     }
 }
