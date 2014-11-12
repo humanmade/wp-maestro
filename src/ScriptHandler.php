@@ -55,11 +55,13 @@ class ScriptHandler {
 			"{{db_name}}"     => $db_name,
 			"{{db_user}}"     => $db_user,
 			"{{db_pass}}"     => $db_pass,
+			"{{domain}}"    => $project_name . '.dev'
 		];
 
 		$wp_config_local = 'wp-config-local.php-dist';
 		$wp_config = 'wp-config.php-dist';
 		$index = 'index.php-dist';
+		$wpcli_config = 'wp-cli.yml-dist';
 
 		self::doReplace( $templates_path . $wp_config_local, $replaces );
 
@@ -68,6 +70,7 @@ class ScriptHandler {
 		copy( $templates_path . $wp_config, $root . DIRECTORY_SEPARATOR . substr( $wp_config, 0, - 5 ) );
 
 		copy( $templates_path . $index, $root . DIRECTORY_SEPARATOR . substr( $index, 0, - 5 ) );
+		copy( $templates_path . $wpcli_config, $root . DIRECTORY_SEPARATOR . substr( $wpcli_config, 0, - 5 ) );
 
 		//$hosts_task = new Hosts( $project_name );
 		//$hosts_task->run();
