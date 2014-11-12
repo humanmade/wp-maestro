@@ -34,8 +34,7 @@
     },
     "autoload": {
         "psr-4": {
-            "WPMaestro\\": "skeleton/",
-            "Vendor\\Namespace\\": ""
+            "WPMaestro\\": "src/"
         }
     },
     "extra": {
