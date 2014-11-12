@@ -42,7 +42,8 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "HM\\WPMaestro\\ScriptHandler::postCreateProject"
+            "HM\\WPMaestro\\ScriptHandler::postCreateProject",
+            "wp db create"
         ]
     }
 }
