@@ -110,19 +110,19 @@ if ( defined( 'HM_DEV' ) && HM_DEV ) {
 
 // Define Site URL: WordPress in a subdirectory.
 if ( ! defined( 'WP_SITEURL' ) )
-	define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress' );
+	define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wp' );
 
 // Define Home URL
 if ( ! defined( 'WP_HOME' ) )
 	define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] );
 
 // Define path & url for Content
-define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
-define( 'WP_CONTENT_URL', WP_HOME . '/content' );
+define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/wp-content' );
+define( 'WP_CONTENT_URL', WP_HOME . '/wp-content' );
 
 // Set path to MU Plugins.
-define( 'WPMU_PLUGIN_DIR', dirname( __FILE__ ) . '/content/plugins-mu' );
-define( 'WPMU_PLUGIN_URL', WP_HOME . '/content/plugins-mu' );
+define( 'WPMU_PLUGIN_DIR', dirname( __FILE__ ) . '/wp-content/plugins-mu' );
+define( 'WPMU_PLUGIN_URL', WP_HOME . '/wp-content/plugins-mu' );
 
 // Set default theme.
 define( 'WP_DEFAULT_THEME', 'hm-base-theme' );
