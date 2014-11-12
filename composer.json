@@ -34,7 +34,7 @@
     },
     "autoload": {
         "psr-4": {
-            "WPMaestro\\": "src/"
+            "HM\\WPMaestro\\": "src/"
         }
     },
     "extra": {
@@ -42,7 +42,7 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "WPMaestro\\ScriptHandler::postCreateProject"
+            "HM\\WPMaestro\\ScriptHandler::postCreateProject"
         ]
     }
 }

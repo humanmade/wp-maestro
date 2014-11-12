@@ -1,8 +1,9 @@
 <?php
 
-namespace WPMaestro;
+namespace HM\WPMaestro;
 
 use Composer\Script\Event;
+use HM\WPMaestro\Tasks\Hosts;
 
 /**
  * Class ScriptHandler
@@ -44,30 +45,34 @@ class ScriptHandler {
 			]
 		);
 
-		foreach ( $db_creds as $key => $val ) {
-			$$key = $io->ask( $val['msg'] , $val['default'] );
-		}
+//		foreach ( $db_creds as $key => $val ) {
+//			$$key = $io->ask( $val['msg'] , $val['default'] );
+//		}
+//
+//		$replaces = [
+//			"{{projectname }}" => $project_name,
+//			"{{db_host}}"     => $db_host,
+//			"{{db_name}}"     => $db_name,
+//			"{{db_user}}"     => $db_user,
+//			"{{db_pass}}"     => $db_pass,
+//		];
+//
+//		$wp_config_local = 'wp-config-local.php-dist';
+//		$wp_config = 'wp-config.php-dist';
+//
+//		self::doReplace( $templates_path . $wp_config, $replaces );
+//
+//		copy( $templates_path . $wp_config_local, $root . DIRECTORY_SEPARATOR . substr( $wp_config_local, 0, - 5 ) );
+//
+//		copy( $templates_path . $wp_config, $root . DIRECTORY_SEPARATOR . substr( $wp_config, 0, - 5 ) );
 
-		$replaces = [
-			"{{projectname }}" => $project_name,
-			"{{db_host}}"     => $db_host,
-			"{{db_name}}"     => $db_name,
-			"{{db_user}}"     => $db_user,
-			"{{db_pass}}"     => $db_pass,
-		];
+		$hosts_task = new Hosts( $project_name );
+		$hosts_task->run();
+		$hosts_task->log();
 
-		$wp_config_local = 'wp-config-local.php-dist';
-		$wp_config = 'wp-config.php-dist';
-
-		self::doReplace( $templates_path . $wp_config, $replaces );
-
-		copy( $templates_path . $wp_config_local, $root . DIRECTORY_SEPARATOR . substr( $wp_config_local, 0, - 5 ) );
-		
-		copy( $templates_path . $wp_config, $root . DIRECTORY_SEPARATOR . substr( $wp_config, 0, - 5 ) );
-
-		echo 'Cleaning up';
-		// Remove the source code.
-		self::delTree( 'src' );
+//		echo 'Cleaning up';
+//		// Remove the source code.
+//		self::delTree( 'src' );
 
 		echo 'Script finished. Your site is ready!';
 
@@ -108,5 +113,7 @@ class ScriptHandler {
 
 		return rmdir( $dir );
 	}
+
+
 
 }
