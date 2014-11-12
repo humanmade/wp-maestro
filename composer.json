@@ -32,12 +32,18 @@
     "config"      : {
         "vendor-dir": "wp-content/vendor"
     },
+    "autoload": {
+        "psr-4": {
+            "WPMaestro\\": "skeleton/",
+            "Vendor\\Namespace\\": ""
+        }
+    },
     "extra": {
         "wordpress-install-dir": "wp"
     },
     "scripts": {
         "post-create-project-cmd": [
-            "skeleton/post-create-project.php"
+            "WPMaestro\\ScriptHandler::postCreateProject"
         ]
     }
 }
