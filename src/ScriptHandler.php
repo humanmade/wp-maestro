@@ -49,17 +49,20 @@ class ScriptHandler {
 		}
 
 		$replaces = [
-			"{{ projectname }}" => $project_name,
-			"{{ db_host }}"     => $db_host,
-			"{{ db_name }}"     => $db_name,
-			"{{ db_user }}"     => $db_user,
-			"{{ db_pass }}"     => $db_pass,
+			"{{projectname }}" => $project_name,
+			"{{db_host}}"     => $db_host,
+			"{{db_name}}"     => $db_name,
+			"{{db_user}}"     => $db_user,
+			"{{db_pass}}"     => $db_pass,
 		];
 
-		$wp_config = 'wp-config-local.php-dist';
+		$wp_config_local = 'wp-config-local.php-dist';
+		$wp_config = 'wp-config.php-dist';
 
 		self::doReplace( $templates_path . $wp_config, $replaces );
 
+		copy( $templates_path . $wp_config_local, $root . DIRECTORY_SEPARATOR . substr( $wp_config_local, 0, - 5 ) );
+		
 		copy( $templates_path . $wp_config, $root . DIRECTORY_SEPARATOR . substr( $wp_config, 0, - 5 ) );
 
 		echo 'Cleaning up';
