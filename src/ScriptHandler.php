@@ -3,6 +3,8 @@
 namespace HM\WPMaestro;
 
 use Composer\Script\Event;
+use HM\WPMaestro\Tasks\Database;
+
 //use HM\WPMaestro\Tasks\Hosts;
 
 /**
@@ -74,6 +76,9 @@ class ScriptHandler {
 
 		//$hosts_task = new Hosts( $project_name );
 		//$hosts_task->run();
+
+		$database_task = new Database( $root );
+		$database_task->run();
 
 		echo 'Cleaning up';
 		// Remove the source code.

@@ -2,7 +2,7 @@
 
 namespace HM\WPMaestro\Tasks;
 
-class Hosts {
+class Host {
 
 	protected $host_name;
 
