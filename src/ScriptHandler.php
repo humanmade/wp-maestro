@@ -28,7 +28,7 @@ class ScriptHandler {
 
 		$project_name = basename( $root );
 
-		$db_creds = array(
+		$user_values = array(
 			'db_host' => [
 				'default' => 'localhost',
 				'msg'     => 'Host name (default localhost)' . PHP_EOL
@@ -44,10 +44,26 @@ class ScriptHandler {
 			'db_user' => [
 				'default' => 'root',
 				'msg'     => 'Database user (default root)' . PHP_EOL
-			]
+			],
+			'theme_slug' => [
+				'default' => 'twentyfifteen',
+				'msg'     => 'Active theme (default twentyfifteen)' . PHP_EOL
+			],
+			'admin_email' => [
+				'default' => 'admin@example.com',
+				'msg'     => 'Admin email (default admin@example.com)' . PHP_EOL
+			],
+			'admin_user' => [
+				'default' => 'jack123',
+				'msg'     => 'Admin user (default jack123)' . PHP_EOL
+			],
+			'admin_password' => [
+				'default' => 'jack123',
+				'msg'     => 'Admin password (default jack123)' . PHP_EOL
+			],
 		);
 
-		foreach ( $db_creds as $key => $val ) {
+		foreach ( $user_values as $key => $val ) {
 			$$key = $io->ask( $val['msg'] , $val['default'] );
 		}
 
@@ -77,8 +93,8 @@ class ScriptHandler {
 		//$hosts_task = new Hosts( $project_name );
 		//$hosts_task->run();
 
-		$database_task = new Database( $root );
-		$database_task->run();
+		$installation = new Install( $root, $theme_slug, $admin_user, $admin_password, $admin_email );
+		$installation->run();
 
 		echo 'Cleaning up' . PHP_EOL;
 		// Remove the source code.
