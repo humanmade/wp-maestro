@@ -19,3 +19,10 @@ At the end of the process, you'll be asked:
 > Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]?
 
 You should answer 'yes'
+
+Prerequisites
+-------------
+
+- PHP
+- mySQL
+- [WP CLI](http://wp-cli.org)
