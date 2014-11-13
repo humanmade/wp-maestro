@@ -3,7 +3,7 @@
 namespace HM\WPMaestro;
 
 use Composer\Script\Event;
-use HM\WPMaestro\Tasks\Database;
+use HM\WPMaestro\Tasks\Install;
 
 //use HM\WPMaestro\Tasks\Hosts;
 
@@ -46,8 +46,8 @@ class ScriptHandler {
 				'msg'     => 'Database user (default root)' . PHP_EOL
 			],
 			'theme_slug' => [
-				'default' => 'twentyfifteen',
-				'msg'     => 'Active theme (default twentyfifteen)' . PHP_EOL
+				'default' => 'https://github.com/Automattic/_s/archive/master.zip',
+				'msg'     => 'Active theme (default _s)' . PHP_EOL
 			],
 			'admin_email' => [
 				'default' => 'admin@example.com',
