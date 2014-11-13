@@ -26,3 +26,4 @@ Prerequisites
 - PHP
 - mySQL
 - [WP CLI](http://wp-cli.org)
+- [Composer](http://getcomposer.org)
