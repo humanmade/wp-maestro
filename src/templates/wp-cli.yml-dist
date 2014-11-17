@@ -1,2 +1,2 @@
 path: wp
-url: http://{{projectname}}
+url: http://{{project_name}}
