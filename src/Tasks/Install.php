@@ -32,9 +32,11 @@ class Install extends Task {
 			copy( $templates_path . $template, $root . DIRECTORY_SEPARATOR . substr( $template, 0, -5 ) );
 		}
 
-		chdir( $root );
+		chdir( $root . '/wp-content' );
 
-		symlink( 'wp/wp-content/themes', 'wp-content/themes' );
+		symlink( $root . '/wp/wp-content/themes', 'themes' );
+
+		chdir( $root );
 
 		exec( 'wp db create' );
 
