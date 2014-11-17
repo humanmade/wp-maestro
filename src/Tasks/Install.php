@@ -2,36 +2,45 @@
 
 namespace HM\WPMaestro\Tasks;
 
-class Install {
+use HM\WPMaestro\Tasks\Questions\InstallQuestions;
 
-	protected $project_path;
+class Install extends Task {
 
-	protected $theme_slug;
+	public function run( $io = null, InstallQuestions $questions = null ) {
 
-	protected $admin_user;
-	protected $admin_password;
-	protected $admin_email;
+		foreach ( $questions->get_questions() as $key => $question ) {
+			$answers[ $key ] = $io->ask( $question['prompt'], $question['default'] );
+		}
 
-	public function __construct( $project_path, $theme_slug, $admin_user, $admin_password, $admin_email ) {
+		foreach ( $answers as $key => $val ) {
+			$replacements[ '{{' . $key . '}}' ] = $val;
+		}
 
-		$this->project_path = $project_path;
+		$root = realpath( '.' );
 
-		$this->theme_slug = $theme_slug;
+		$templates_path = $root . '/src/templates/';
 
-		$this->admin_email = $admin_email;
-		$this->admin_user = $admin_user;
-		$this->admin_password = $admin_password;
+		$templates = array(
+			'wp-config-local.php-dist',
+			'wp-config.php-dist',
+			'index.php-dist',
+			'wp-cli.yml-dist',
+		);
 
-	}
+		foreach ( $templates as $template ) {
+			$this->doReplace( $templates_path . $template, $replacements );
+			copy( $templates_path . $template, $root . DIRECTORY_SEPARATOR . substr( $template, 0, -5 ) );
+		}
 
-	public function run() {
+		chdir( $root );
 
-		chdir( $this->project_path );
+		symlink( 'wp/wp-content/themes', 'wp-content/themes' );
 
 		exec( 'wp db create' );
 
-		exec( "wp core install --url={$this->project_path} --title={$this->project_path} --admin_user={$this->admin_user} --admin_password={$this->admin_password} --admin_email={$this->admin_email}" );
+		exec( "wp core install --title={$answers['project_name']} --admin_user={$answers['admin_user']} --admin_password={$answers['admin_pass']} --admin_email={$answers['admin_email']}" );
 
-		exec( 'wp theme install ' . $this->theme_slug . ' --activate' );
+		exec( 'wp theme install ' . $answers['active_theme'] . ' --activate' );
+
 	}
 }
