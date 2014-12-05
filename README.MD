@@ -10,8 +10,9 @@ Getting started
 
 - Add an entry to your `/etc/hosts` file for the sute
 - Create a database
+- ssh into your vagrant box
 
-Run the following command from the parent directory where you want to install WordPress.
+- Run the following command while ssh'd from the parent directory where you want to install WordPress.
 `composer create-project -sdev humanmade/wp-maestro testinstall`
 
 Where [testinstall] is the name of your project.
