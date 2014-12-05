@@ -9,7 +9,6 @@ Getting started
 ---------------
 
 - Add an entry to your `/etc/hosts` file for the sute
-- Create a database
 - ssh into your vagrant box
 
 - Run the following command while ssh'd from the parent directory where you want to install WordPress.
