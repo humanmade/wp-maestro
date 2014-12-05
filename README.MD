@@ -24,6 +24,8 @@ At the end of the process, you'll be asked:
 
 You should answer 'yes'
 
+You could alias the whole command to something like `wp-maesto [project]`
+
 Prerequisites
 -------------
 
