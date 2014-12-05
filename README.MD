@@ -8,6 +8,9 @@ WARNING: this is alpha software, here be dragons.
 Getting started
 ---------------
 
+- Add an entry to your `/etc/hosts` file for the sute
+- Create a database
+
 Run the following command from the parent directory where you want to install WordPress.
 `composer create-project -sdev humanmade/wp-maestro testinstall`
 
