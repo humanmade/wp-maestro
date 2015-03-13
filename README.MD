@@ -8,7 +8,7 @@ WARNING: this is alpha software, here be dragons.
 Getting started
 ---------------
 
-- Add an entry to your `/etc/hosts` file for the sute
+- Add an entry to your `/etc/hosts` file for the site (seems like the latest version of Vagrant handles that now)
 - ssh into your vagrant box
 
 - Run the following command while ssh'd from the parent directory where you want to install WordPress.
